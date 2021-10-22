@@ -1,6 +1,5 @@
 package calculator;
 
-import calculator.Calculator;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,7 +9,6 @@ import org.junit.Assert;
 public class MyStepdefs2 {
     private Calculator calculator;
     private int value1;
-    private String op;
     private double result;
 
     @Before
@@ -24,7 +22,7 @@ public class MyStepdefs2 {
     }
 
 
-    @When("^op ([a-z]+) the value$")
+    @When("^I op ([a-z]+) the value$")
     public void iOpTheValue(String arg0) {
         if (arg0.equals("rvs")){
             result = calculator.rvs(value1);
@@ -37,9 +35,8 @@ public class MyStepdefs2 {
         System.out.print(result);
     }
 
-    @Then("^I expect the result (-?[1-9]\\d*|0)$")
+    @Then("^I wish for the result ([-?[1-9]\\d*|0].*\\d*)$")
     public void iExpectTheResult(double arg0) {
-        Assert.assertEquals(arg0, result);
-
+        Assert.assertEquals(arg0, result, 0.0001);
     }
 }

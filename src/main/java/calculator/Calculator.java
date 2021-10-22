@@ -6,13 +6,13 @@ public class Calculator {
     }
     public double rvs(int a){
         if (a == 0){
-            return Double.NaN;
+            return 0;
         }
-        return 1 / a;
+        return 1 / (double)a;
     }
     public double sqr(int a){
         if (a < 0){
-            return Double.NaN;
+            return -1;
         }
         return Math.sqrt(a);
     }
